@@ -1,4 +1,6 @@
-import { Flex } from '@radix-ui/themes';
+'use client';
+
+import { Flex, Tabs } from '@radix-ui/themes';
 
 export type Category = {
     label: string;
@@ -46,15 +48,19 @@ export const HackerNewsCategory = ({ category }: { category: Category }) => {
 
 export default function HackerNewsCategoryList() {
     return (
-        <Flex direction={'row'}>
-            {CATEGORY_LIST.map((category, index) => {
-                return (
-                    <HackerNewsCategory
-                        key={category?.id ?? index}
-                        category={category}
-                    />
-                );
-            })}
-        </Flex>
+        <Tabs.Root>
+            <Tabs.List>
+                {CATEGORY_LIST.map((category, index) => {
+                    return (
+                        <Tabs.Trigger
+                            value={category?.id}
+                            key={category?.id ?? index}
+                        >
+                            <HackerNewsCategory category={category} />
+                        </Tabs.Trigger>
+                    );
+                })}
+            </Tabs.List>
+        </Tabs.Root>
     );
 }
