@@ -3,12 +3,12 @@ const nextConfig = {
     images: {
         domains: ['https://news.ycombinator.com'],
     },
-    rewrites: async () => [
-        {
-            source: '/:category',
-            destination: '/',
-        },
-    ],
+    // rewrites: async () => [
+    //     {
+    //         source: '/:category',
+    //         destination: '/',
+    //     },
+    // ],
 };
 
 module.exports = nextConfig;
