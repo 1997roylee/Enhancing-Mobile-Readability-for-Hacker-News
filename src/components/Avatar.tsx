@@ -1,27 +1,19 @@
+import { HackerNewsPostType } from '@/lib/y18/types';
 import { Flex, Text } from '@radix-ui/themes';
 
 export type AvatarProps = {
-    name: string;
+    name: HackerNewsPostType;
 };
 
-// function generateGradient(str: string) {
-//     let hash = 0;
-//     for (let i = 0; i < str.length; i++) {
-//         hash = str.charCodeAt(i) + ((hash << 5) - hash);
-//     }
+export type TPostAvatar = Record<HackerNewsPostType, string>;
 
-//     const color1 =
-//         ((hash >> 24) & 0xff).toString(16) +
-//         ((hash >> 16) & 0xff).toString(16) +
-//         ((hash >> 8) & 0xff).toString(16);
-
-//     // hash = ~hash;
-//     // const color2 = ((hash >> 24) & 0xFF).toString(16) +
-//     //                ((hash >> 16) & 0xFF).toString(16) +
-//     //                ((hash >> 8) & 0xFF).toString(16);
-
-//     return `linear-gradient(to right, #${color1}, #${color1})`;
-// }
+const PostAvatar: TPostAvatar = {
+    job: '💼',
+    story: '📖',
+    comment: '💬',
+    poll: '📊',
+    pollopt: '📊',
+};
 
 export default function Avatar({ name }: AvatarProps) {
     return (
@@ -32,8 +24,9 @@ export default function Avatar({ name }: AvatarProps) {
             width={'8'}
             height={'8'}
         >
-            <Text className='text-color' size='4'>
-                {`${name[0]}${name?.[1]}`.toUpperCase()}
+            <Text className='text-color' size='3'>
+                {PostAvatar[name]}
+                {/* {`${name[0]}${name?.[1]}`.toUpperCase()} */}
             </Text>
         </Flex>
     );
