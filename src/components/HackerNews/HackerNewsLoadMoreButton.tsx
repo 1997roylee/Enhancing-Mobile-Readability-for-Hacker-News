@@ -1,29 +1,45 @@
 'use client';
 
 import { Button, Flex } from '@radix-ui/themes';
-// import { revalidateHome } from '@/lib/pages';
-import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
-// import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import HackerNewsLoadingList from './HackerNewsLoadingList';
+import { fetchNews } from '@/app/actions';
+import { HackerNewsPost } from '@/lib/y18/types';
 
-export default function HackerNewsLoadMoreButton() {
-    const searchParams = useSearchParams();
+export type HackerNewsLoadMoreButtonProps = {
+    category?: string;
+    onLoadMore?: (posts: (HackerNewsPost | null)[]) => void;
+};
+
+export default function HackerNewsLoadMoreButton({
+    onLoadMore,
+    category = 'top',
+}: HackerNewsLoadMoreButtonProps) {
+    const [page, setPage] = useState(0);
+    // const searchParams = useSearchParams();
+    const [isLoading, setIsLoading] = useState(false);
+    // const page = searchParams.get('p') ? Number(searchParams.get('p')) : 1;
     // const router = useRouter();
-    const n = searchParams.get('n') ? Number(searchParams.get('n')) + 30 : 30;
 
-    // const handleLoad = async () => {
-    //     revalidateHome(n);
-
-    //     router.push(`?n=${n}`, {
-    //         scroll: false,
-    //     });
-    // };
+    const handleLoadMore = async () => {
+        setIsLoading(true);
+        // router.push(`/${category}?p=${page + 1}`, {
+        //     scroll: false,
+        // });
+        const posts = await fetchNews(category, page + 1);
+        setPage((_page) => _page + 1);
+        onLoadMore?.(posts);
+        setIsLoading(false);
+    };
 
     return (
-        <Flex justify={'center'} width='100%' mb={'6'}>
-            <Link href={`?n=${n}`} shallow scroll={false}>
-                <Button variant='outline'>Load more</Button>
-            </Link>
-        </Flex>
+        <>
+            {isLoading && <HackerNewsLoadingList />}
+            <Flex justify={'center'} width='100%' mb={'6'}>
+                <Button variant='outline' onClick={handleLoadMore}>
+                    Load more
+                </Button>
+            </Flex>
+        </>
     );
 }
