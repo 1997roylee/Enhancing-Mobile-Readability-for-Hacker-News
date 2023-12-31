@@ -1,3 +1,10 @@
+export type HackerNewsPostType =
+    | 'job'
+    | 'story'
+    | 'comment'
+    | 'poll'
+    | 'pollopt';
+
 export type HackerNewsPost = {
     by: string;
     descendants: number;
@@ -6,6 +13,8 @@ export type HackerNewsPost = {
     score: number;
     time: number;
     title: string;
-    type: string;
+    type: HackerNewsPostType;
     url: string;
+    deleted?: boolean;
+    dead?: boolean;
 };
