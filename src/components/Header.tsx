@@ -1,6 +1,5 @@
 import { Box, Button, Flex } from '@radix-ui/themes';
 import Image from 'next/image';
-import HackerNewsCategoryList from './HackerNews/HackerNewsCategoryList';
 
 export default function Header() {
     return (
@@ -24,7 +23,6 @@ export default function Header() {
                     <Button color='orange'>Star Github</Button>
                 </Box>
             </Flex>
-            <HackerNewsCategoryList />
         </>
     );
 }
