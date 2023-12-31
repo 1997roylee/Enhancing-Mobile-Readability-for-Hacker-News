@@ -5,9 +5,11 @@ import { Box, Flex, Text } from '@radix-ui/themes';
 import HackerNewsPost from './HackerNewsPost';
 import HackerNewsLoadMoreButton from './HackerNewsLoadMoreButton';
 import dayjs from 'dayjs';
+import { useEffect, useMemo, useState } from 'react';
+import HackerNewsLoadingList from './HackerNewsLoadingList';
 
 export interface HackerNewsPostListProps {
-    posts: (THackerNewsPost | null)[];
+    initialPosts: (THackerNewsPost | null)[];
     category: string;
 }
 
@@ -20,31 +22,47 @@ const TaglineByCategory = {
 } as const;
 
 export default function HackerNewsPostList({
-    posts,
+    initialPosts,
     category = 'top',
 }: HackerNewsPostListProps) {
+    const [posts, setPosts] = useState<(THackerNewsPost | null)[]>([]);
+    const now = useMemo(() => dayjs().format('YYYY-MM-DD'), []);
+
+    useEffect(() => {
+        setPosts(initialPosts);
+    }, [initialPosts]);
+
     const title = TaglineByCategory[
         category as keyof typeof TaglineByCategory
     ] as string;
 
-    const postsByDate = posts.reduce(
-        (groups, post) => {
-            if (post) {
-                const date = dayjs.unix(post?.time ?? 0).format('YYYY-MM-DD');
-                if (!groups[date]) {
-                    groups[date] = [];
-                }
-                groups[date].push(post);
-            }
-            return groups;
-        },
-        {} as Record<string, THackerNewsPost[]>,
+    const postsByDate = useMemo(
+        () =>
+            posts.reduce(
+                (groups, post) => {
+                    if (post) {
+                        const date = dayjs
+                            .unix(post?.time ?? 0)
+                            .format('YYYY-MM-DD');
+                        if (!groups[date]) {
+                            groups[date] = [];
+                        }
+                        groups[date].push(post);
+                    }
+                    return groups;
+                },
+                {} as Record<string, THackerNewsPost[]>,
+            ),
+        [posts],
     );
 
-    const now = dayjs().format('YYYY-MM-DD');
+    const handleLoadMore = (posts: (THackerNewsPost | null)[]) => {
+        setPosts((prevPosts) => [...prevPosts, ...posts]);
+    };
 
     return (
         <Flex direction={'column'}>
+            {posts.length === 0 && <HackerNewsLoadingList />}
             {Object.entries(postsByDate).map(([date, posts]) => {
                 return (
                     <div key={date}>
@@ -56,10 +74,10 @@ export default function HackerNewsPostList({
                             </Box>
                             <div className='sticky_header_bottom' />
                         </Box>
-                        {posts.map((post, index) => {
+                        {posts.map((post) => {
                             return (
                                 <HackerNewsPost
-                                    key={post?.id ?? index}
+                                    key={`${category}/${post.id}`}
                                     post={post}
                                 />
                             );
@@ -68,7 +86,10 @@ export default function HackerNewsPostList({
                 );
             })}
 
-            <HackerNewsLoadMoreButton />
+            <HackerNewsLoadMoreButton
+                category={category}
+                onLoadMore={handleLoadMore}
+            />
         </Flex>
     );
 }
