@@ -1,5 +1,5 @@
 export const API_BASE_URL = 'https://hacker-news.firebaseio.com';
-export const REVALIDATE_TIME = 60 * 5;
+export const REVALIDATE_TIME = 60 * 5; //  Will revalidate every 5 minute
 
 export const createAPIEndpoint = (path: string) => {
     return `${API_BASE_URL}${path}`;
