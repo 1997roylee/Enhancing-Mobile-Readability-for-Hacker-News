@@ -44,10 +44,10 @@ const Colors = [
 
 export default function HackerNewsLoadingList() {
     return (
-        <>
+        <Box p='3'>
             {Colors.map((color) => (
                 <HackerNewsPostLoading key={color} backgroundColor={color} />
             ))}
-        </>
+        </Box>
     );
 }
