@@ -1,5 +1,6 @@
 import { Box, Button, Flex } from '@radix-ui/themes';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Header() {
     return (
@@ -20,7 +21,14 @@ export default function Header() {
                     />
                 </Box>
                 <Box>
-                    <Button color='orange'>Star Github</Button>
+                    <Link
+                        href={
+                            'https://github.com/1997roylee/modern-hacker-news'
+                        }
+                        target='_blank'
+                    >
+                        <Button color='orange'>Star Github</Button>
+                    </Link>
                 </Box>
             </Flex>
         </>
