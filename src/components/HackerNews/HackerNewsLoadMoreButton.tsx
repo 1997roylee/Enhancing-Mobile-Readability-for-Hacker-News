@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@radix-ui/themes';
+import { Button, Flex } from '@radix-ui/themes';
 // import { revalidateHome } from '@/lib/pages';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
@@ -20,8 +20,10 @@ export default function HackerNewsLoadMoreButton() {
     // };
 
     return (
-        <Link href={`?n=${n}`} shallow scroll={false}>
-            <Button variant='outline'>Load more</Button>
-        </Link>
+        <Flex justify={'center'} width='100%' mb={'6'}>
+            <Link href={`?n=${n}`} shallow scroll={false}>
+                <Button variant='outline'>Load more</Button>
+            </Link>
+        </Flex>
     );
 }
