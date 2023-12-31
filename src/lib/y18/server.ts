@@ -17,7 +17,7 @@ export const getNews = async (categoryLabel: string) => {
 
     const response = await fetch(
         createAPIEndpoint(`/v0/${category.path}.json?print=pretty`),
-        { next: { revalidate: REVALIDATE_TIME, tags: [category.path] } },
+        { next: { revalidate: REVALIDATE_TIME, tags: [category.label] } },
     );
 
     const data = await response.json();
@@ -29,7 +29,7 @@ export const getNews = async (categoryLabel: string) => {
     return returnError(new Error('Error fetching newest news'));
 };
 
-export const getNewestNewsItems = async (postIds: number[]) => {
+export const getNewsItems = async (postIds: number[]) => {
     const news = await Promise.all(
         postIds.map(async (id) => {
             const response = await fetch(
