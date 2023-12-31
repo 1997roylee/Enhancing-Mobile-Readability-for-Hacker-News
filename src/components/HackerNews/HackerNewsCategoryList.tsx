@@ -1,49 +1,23 @@
 'use client';
 
+import { CATEGORY_LIST, Category } from '@/utils/category';
 import { Flex, Tabs } from '@radix-ui/themes';
-
-export type Category = {
-    label: string;
-    id: string;
-};
-
-const CATEGORY_LIST: Category[] = [
-    {
-        label: 'top',
-        id: 'top',
-    },
-    {
-        label: 'news',
-        id: 'news',
-    },
-    {
-        label: 'past',
-        id: 'past',
-    },
-    {
-        label: 'comments',
-        id: 'comments',
-    },
-    {
-        label: 'ask',
-        id: 'ask',
-    },
-    {
-        label: 'show',
-        id: 'show',
-    },
-    {
-        label: 'jobs',
-        id: 'jobs',
-    },
-    {
-        label: 'submit',
-        id: 'submit',
-    },
-];
+import { useRouter, useSearchParams } from 'next/navigation';
 
 export const HackerNewsCategory = ({ category }: { category: Category }) => {
-    return <Flex>{category.label}</Flex>;
+    const searchParams = useSearchParams();
+    const router = useRouter();
+    const n = searchParams.get('n') ?? 30;
+
+    const handleClicked = async () => {
+        // revalidateHome(n);
+
+        router.push(`/${category.label}?n=${n}`, {
+            scroll: false,
+        });
+    };
+
+    return <Flex onClick={handleClicked}>{category.label}</Flex>;
 };
 
 export default function HackerNewsCategoryList() {
