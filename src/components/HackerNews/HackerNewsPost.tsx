@@ -15,31 +15,52 @@ export default function HackerNewsPost({ post }: HackerNewsPostProps) {
     if (!post) return null;
 
     return (
-        <Link href={post.url ?? '#'}>
+        <div data-id={post.id}>
             <Flex
                 py={'4'}
                 px='3'
-                className='hover:bg-gray-50 relative cursor-pointer'
+                className='hover:bg-gray-50 relative'
                 data-post-type={post.type}
                 justify={'between'}
             >
                 <Flex align={'center'} className='flex-1' pr='2'>
-                    <Avatar name={post.by} />
+                    <Avatar name={post.type} />
                     <Box ml='3' className='flex-1'>
-                        <Text weight={'bold'} size='2'>
-                            {post?.title}
-                        </Text>
-                        <Flex mt='1'>
-                            <Text size='1' className='text-slate-700'>
-                                #{post.by}
+                        <Link href={post.url ?? '#'} target='_blank'>
+                            <Text weight={'bold'} size='2'>
+                                {post?.title}
                             </Text>
-                            <Text ml='2' size='1' className='text-slate-700'>
-                                {post.descendants} comments
-                            </Text>
+                        </Link>
+                        <Flex>
+                            <Link
+                                href={
+                                    `https://news.ycombinator.com/user?id=` +
+                                    post.by
+                                }
+                            >
+                                <Text size='1' className='text-slate-700'>
+                                    By #{post.by}
+                                </Text>
+                            </Link>
+                            <Link
+                                href={`https://news.ycombinator.com/item?id=${post.id}`}
+                            >
+                                <Text
+                                    ml='2'
+                                    size='1'
+                                    className='text-slate-700'
+                                >
+                                    {post.descendants} comments
+                                </Text>
+                            </Link>
                         </Flex>
-                        <Text size='1' className='text-slate-700'>
-                            {date}
-                        </Text>
+                        <Link
+                            href={`https://news.ycombinator.com/item?id=${post.id}`}
+                        >
+                            <Text size='1' className='text-slate-700'>
+                                {date}
+                            </Text>
+                        </Link>
                     </Box>
                 </Flex>
                 <Flex
@@ -61,6 +82,6 @@ export default function HackerNewsPost({ post }: HackerNewsPostProps) {
                     </Flex>
                 </Flex>
             </Flex>
-        </Link>
+        </div>
     );
 }
