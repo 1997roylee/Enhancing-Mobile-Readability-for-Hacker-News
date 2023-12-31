@@ -14,8 +14,6 @@ export default function HackerNewsPost({ post }: HackerNewsPostProps) {
 
     if (!post) return null;
 
-    console.log(post, 'post');
-
     return (
         <Link href={post.url ?? '#'}>
             <Flex
@@ -25,30 +23,41 @@ export default function HackerNewsPost({ post }: HackerNewsPostProps) {
                 data-post-type={post.type}
                 justify={'between'}
             >
-                <Flex align={'center'}>
+                <Flex align={'center'} className='flex-1' pr='2'>
                     <Avatar name={post.by} />
                     <Box ml='3' className='flex-1'>
-                        <Text weight={'medium'}>{post?.title}</Text>
-                        <Flex>
-                            <Text size='2' className='text-gray-700'>
-                                {' '}
-                                {post.by}
+                        <Text weight={'bold'} size='2'>
+                            {post?.title}
+                        </Text>
+                        <Flex mt='1'>
+                            <Text size='1' className='text-slate-700'>
+                                #{post.by}
                             </Text>
-                            <Text ml='2' size='2' className='text-gray-700'>
-                                {date}
+                            <Text ml='2' size='1' className='text-slate-700'>
+                                {post.descendants} comments
                             </Text>
                         </Flex>
+                        <Text size='1' className='text-slate-700'>
+                            {date}
+                        </Text>
                     </Box>
                 </Flex>
-                <Flex width='9' className='border-l' direction={'column'}>
+                <Flex
+                    width='8'
+                    className='border-l'
+                    direction={'column'}
+                    justify={'center'}
+                >
                     <Flex
                         className='flex-1'
                         align={'center'}
                         justify={'center'}
                         direction={'column'}
                     >
-                        <RiArrowUpSFill size='32px' />
-                        <Text align='center'>{post.score}</Text>
+                        <RiArrowUpSFill size='32px' className='text-gray-600' />
+                        <Text align='center' size='2' className='text-gray-600'>
+                            {post.score}
+                        </Text>
                     </Flex>
                 </Flex>
             </Flex>
