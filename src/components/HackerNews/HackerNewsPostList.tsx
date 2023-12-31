@@ -1,3 +1,5 @@
+'use client';
+
 import { type HackerNewsPost as THackerNewsPost } from '@/lib/y18/types';
 import { Box, Flex, Text } from '@radix-ui/themes';
 import HackerNewsPost from './HackerNewsPost';
