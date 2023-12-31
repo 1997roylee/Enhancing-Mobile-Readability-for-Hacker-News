@@ -3,3 +3,10 @@ This repo is a modern interface for Hacker News built with React/Next.js 14, Rad
 ## References
 
 API: https://github.com/HackerNews/API
+
+## Milestones
+
+- [] Support PWA
+- [] Cache Data on IndexedDB
+- [] Support Dark Mode
+- [] Post Detail Page
