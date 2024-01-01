@@ -4,6 +4,11 @@ Personal Project: Improving Mobile Readability and User-Friendliness of Hacker N
 
 ## Getting Started
 
+### Prerequisites
+
+-   [Node.js](https://nodejs.org/en/) >= 18.0.0
+-   [Yarn](https://yarnpkg.com/) >= 1.22.21
+
 ### Install Dependencies
 
 ```bash
