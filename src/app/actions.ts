@@ -16,12 +16,5 @@ export async function fetchNews(category: string, page: number) {
     const postsResult = await getNewsItems(_postIds);
     const posts = postsResult.success ? postsResult.data : [];
 
-    console.log(
-        'postsResult',
-        posts.map((post) => post.id),
-        _postIds,
-        postIds.length,
-    );
-
     return posts;
 }
