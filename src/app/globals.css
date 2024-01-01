@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-.sticky_header_bottom {
+/* .sticky_header_bottom {
     background: linear-gradient(180deg, #fff, hsla(0, 0%, 100%, 0));
     width: 100%;
     height: 19px;
-}
+} */
 
 .radix-themes {
     --default-font-family: Verdana, Geneva, sans-serif;
@@ -18,4 +18,8 @@
 body,
 html {
     font-family: Verdana, Geneva, sans-serif;
+}
+
+a {
+    line-height: auto;
 }
