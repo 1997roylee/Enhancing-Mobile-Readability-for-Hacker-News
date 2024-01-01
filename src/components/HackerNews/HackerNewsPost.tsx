@@ -29,7 +29,7 @@ export default function HackerNewsPost({ post }: HackerNewsPostProps) {
                     <Box className='flex-1'>
                         <Flex align='start'>
                             <Box>
-                                <Avatar name={post.type} />
+                                {/* <Avatar name={post.type} /> */}
                                 <Flex direction={'column'} justify={'center'}>
                                     <Flex
                                         align={'center'}
