@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import { Container } from '@radix-ui/themes';
 import '@radix-ui/themes/styles.css';
 import { PropsWithChildren } from 'react';
+import 'intersection-observer';
 
 export const metadata: Metadata = {
     title: 'Hacker News',
