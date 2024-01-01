@@ -38,12 +38,12 @@ export default function HackerNewsPost({ post }: HackerNewsPostProps) {
                                     >
                                         <RiArrowUpSFill
                                             size='24px'
-                                            className='text-gray-600'
+                                            className='text-slate-700'
                                         />
                                         <Text
                                             align='center'
                                             size='1'
-                                            className='text-gray-600'
+                                            className='text-slate-700'
                                         >
                                             {post.score}
                                         </Text>
@@ -92,35 +92,37 @@ export default function HackerNewsPost({ post }: HackerNewsPostProps) {
                                         </Text>
                                     </Link>
                                 </Flex>
-                                <Link
+                                {/* <Link
                                     href={`https://news.ycombinator.com/item?id=${post.id}`}
                                 >
                                     <Text size='1' className='text-slate-700'>
                                         {post.descendants} comments
                                     </Text>
-                                </Link>
+                                </Link> */}
                             </Box>
                         </Flex>
                     </Box>
                 </Flex>
-                {/* <Flex
-                    width='8'
-                    className='border-l'
-                    direction={'column'}
-                    justify={'center'}
-                >
+                <Flex direction={'column'} justify={'center'}>
                     <Flex
                         className='flex-1'
                         align={'center'}
                         justify={'center'}
                         direction={'column'}
                     >
-                        <RiArrowUpSFill size='32px' className='text-gray-600' />
-                        <Text align='center' size='2' className='text-gray-600'>
-                            {post.score}
+                        {/* <RiArrowUpSFill size='32px' className='text-gray-600' /> */}
+                        <Text
+                            align='center'
+                            size='2'
+                            className='text-slate-700'
+                        >
+                            {post.descendants}
+                        </Text>
+                        <Text className='text-2xs text-slate-700'>
+                            comments
                         </Text>
                     </Flex>
-                </Flex> */}
+                </Flex>
             </Flex>
         </div>
     );
