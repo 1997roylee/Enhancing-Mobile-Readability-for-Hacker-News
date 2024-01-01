@@ -8,7 +8,7 @@ import { HackerNewsPost } from '@/lib/y18/types';
 
 export type HackerNewsLoadMoreButtonProps = {
     category?: string;
-    onLoadMore?: (posts: (HackerNewsPost | null)[]) => void;
+    onLoadMore?: (posts: HackerNewsPost[]) => void;
 };
 
 export default function HackerNewsLoadMoreButton({
@@ -16,19 +16,13 @@ export default function HackerNewsLoadMoreButton({
     category = 'top',
 }: HackerNewsLoadMoreButtonProps) {
     const [page, setPage] = useState(0);
-    // const searchParams = useSearchParams();
     const [isLoading, setIsLoading] = useState(false);
-    // const page = searchParams.get('p') ? Number(searchParams.get('p')) : 1;
-    // const router = useRouter();
 
     const handleLoadMore = async () => {
         setIsLoading(true);
-        // router.push(`/${category}?p=${page + 1}`, {
-        //     scroll: false,
-        // });
         const posts = await fetchNews(category, page + 1);
         setPage((_page) => _page + 1);
-        onLoadMore?.(posts);
+        onLoadMore?.(posts as HackerNewsPost[]);
         setIsLoading(false);
     };
 
