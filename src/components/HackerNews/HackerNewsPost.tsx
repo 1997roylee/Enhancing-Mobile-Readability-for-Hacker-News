@@ -30,7 +30,7 @@ export default function HackerNewsPost({ post }: HackerNewsPostProps) {
                                 <Avatar name={post.type} />
                             </Box>
                             <Box ml='2' className='flex-1'>
-                                <Link href={post.url ?? '#'} target='_blank'>
+                                <Link href={post.url ?? '#'}>
                                     <Text weight={'medium'} size='2'>
                                         {post?.title}
                                     </Text>
