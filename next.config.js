@@ -3,12 +3,9 @@ const nextConfig = {
     images: {
         domains: ['https://news.ycombinator.com'],
     },
-    // rewrites: async () => [
-    //     {
-    //         source: '/:category',
-    //         destination: '/',
-    //     },
-    // ],
+    compiler: {
+        removeConsole: process.env.NODE_ENV === 'production',
+    },
 };
 
 module.exports = nextConfig;
