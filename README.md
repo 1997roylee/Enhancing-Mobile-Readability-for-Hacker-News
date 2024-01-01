@@ -1,4 +1,36 @@
-This repo is a modern interface for Hacker News built with React/Next.js 14, Radix UI and Tailwind CSS. It aims to provide a pleasant user experience for browsing and discovering the top technology and startup stories on YCombinator's popular news aggregator.
+# Enhancing Mobile Readability for Hacker News
+
+Personal Project: Improving Mobile Readability and User-Friendliness of Hacker News
+
+## Getting Started
+
+### Install Dependencies
+
+```bash
+yarn install
+# or
+npm install
+```
+
+### Run Development Server
+
+```bash
+yarn dev
+# or
+npm run dev
+```
+
+### Build for Production
+
+```bash
+yarn build
+# or
+npm run build
+```
+
+## Feedback
+
+Please feel free to [file an issue](https://github.com/1997roylee/Enhancing-Mobile-Readability-for-Hacker-News/issues) if you have any feedback or suggestions.
 
 ## Tech Stack
 
@@ -13,15 +45,16 @@ API: https://github.com/HackerNews/API
 
 ## Milestones
 
--   [] Support PWA
--   [] Cache Data on IndexedDB
--   [] Support Dark Mode
--   [] Post Detail Page
--   [] Enhance SEO
--   [] Enhance Accessibility
--   [] Enhance Performance
--   [] Support Infinite Scrolling
-
-## Bugs
-
--   Canonot use rewrite for route.
+-   [ ] Support PWA
+-   [ ] Cache Data on IndexedDB
+-   [ ] Post Detail Page
+-   [ ] Enhance SEO
+-   [ ] Enhance Accessibility
+-   [ ] Enhance Performance
+-   [ ] Support Infinite Scrolling
+-   [ ] Support Search
+-   [ ] Support Comments
+-   [ ] Support User Profile
+-   [ ] Support User Settings
+-   [ ] Support Font Size Customization
+-   [ ] Reduce Spacing
