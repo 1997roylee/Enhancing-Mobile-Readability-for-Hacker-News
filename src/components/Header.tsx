@@ -6,16 +6,16 @@ export default function Header() {
     return (
         <>
             <Flex
-                className='border-b'
-                p='4'
+                className='border-b bg-slate-50'
+                p='3'
                 align={'center'}
                 justify={'between'}
             >
                 <Link href='https://news.ycombinator.com/' target='_blank'>
                     <Image
                         src='https://news.ycombinator.com/y18.svg'
-                        width={36}
-                        height={36}
+                        width={30}
+                        height={30}
                         alt='Y18'
                         className='rounded-full'
                     />
@@ -27,7 +27,7 @@ export default function Header() {
                         }
                         target='_blank'
                     >
-                        <Button color='orange' variant='outline'>
+                        <Button color='orange' variant='outline' size='1'>
                             Github
                         </Button>
                     </Link>
