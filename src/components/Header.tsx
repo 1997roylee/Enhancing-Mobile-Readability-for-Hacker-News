@@ -17,7 +17,7 @@ export default function Header() {
                         width={30}
                         height={30}
                         alt='Y18'
-                        className='rounded-full'
+                        // className='rounded'
                     />
                 </Link>
                 <Box>
