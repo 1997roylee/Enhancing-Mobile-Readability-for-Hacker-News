@@ -29,26 +29,31 @@ export default function HackerNewsPost({ post }: HackerNewsPostProps) {
                     <Box className='flex-1'>
                         <Flex align='start'>
                             <Box>
-                                {/* <Avatar name={post.type} /> */}
-                                <Flex direction={'column'} justify={'center'}>
+                                <Link href='https://news.ycombinator.com/vote?id=38830194&how=up&goto=news'>
+                                    {/* <Avatar name={post.type} /> */}
                                     <Flex
-                                        align={'center'}
-                                        justify={'center'}
                                         direction={'column'}
+                                        justify={'center'}
                                     >
-                                        <RiArrowUpSFill
-                                            size='24px'
-                                            className='text-slate-700'
-                                        />
-                                        <Text
-                                            align='center'
-                                            size='1'
-                                            className='text-slate-700'
+                                        <Flex
+                                            align={'center'}
+                                            justify={'center'}
+                                            direction={'column'}
                                         >
-                                            {post.score}
-                                        </Text>
+                                            <RiArrowUpSFill
+                                                size='24px'
+                                                className='text-slate-700'
+                                            />
+                                            <Text
+                                                align='center'
+                                                size='1'
+                                                className='text-slate-700'
+                                            >
+                                                {post.score}
+                                            </Text>
+                                        </Flex>
                                     </Flex>
-                                </Flex>
+                                </Link>
                             </Box>
                             <Box ml='2' className='flex-1'>
                                 <Link href={post.url ?? '#'}>
