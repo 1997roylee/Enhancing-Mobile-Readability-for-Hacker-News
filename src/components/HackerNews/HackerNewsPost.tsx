@@ -66,7 +66,7 @@ export default function HackerNewsPost({ post }: HackerNewsPostProps) {
                                     >
                                         <Text
                                             size='1'
-                                            className='text-slate-700'
+                                            className='text-slate-700 hover:underline'
                                         >
                                             <Text className='text-black'>
                                                 Posted
@@ -83,7 +83,7 @@ export default function HackerNewsPost({ post }: HackerNewsPostProps) {
                                         <Text
                                             size='1'
                                             ml='1'
-                                            className='text-slate-700'
+                                            className='text-slate-700 hover:underline'
                                         >
                                             <Text className='text-black'>
                                                 By
@@ -92,36 +92,33 @@ export default function HackerNewsPost({ post }: HackerNewsPostProps) {
                                         </Text>
                                     </Link>
                                 </Flex>
-                                {/* <Link
-                                    href={`https://news.ycombinator.com/item?id=${post.id}`}
-                                >
-                                    <Text size='1' className='text-slate-700'>
-                                        {post.descendants} comments
-                                    </Text>
-                                </Link> */}
                             </Box>
                         </Flex>
                     </Box>
                 </Flex>
                 <Flex direction={'column'} justify={'center'}>
-                    <Flex
-                        className='flex-1'
-                        align={'center'}
-                        justify={'center'}
-                        direction={'column'}
+                    <Link
+                        href={`https://news.ycombinator.com/item?id=${post.id}`}
                     >
-                        {/* <RiArrowUpSFill size='32px' className='text-gray-600' /> */}
-                        <Text
-                            align='center'
-                            size='2'
-                            className='text-slate-700'
+                        <Flex
+                            className='flex-1 hover:underline cursor-pointer'
+                            align={'center'}
+                            justify={'center'}
+                            direction={'column'}
                         >
-                            {post.descendants}
-                        </Text>
-                        <Text className='text-2xs text-slate-700'>
-                            comments
-                        </Text>
-                    </Flex>
+                            {/* <RiArrowUpSFill size='32px' className='text-gray-600' /> */}
+                            <Text
+                                align='center'
+                                size='2'
+                                className='text-slate-700'
+                            >
+                                {post.descendants}
+                            </Text>
+                            <Text className='text-2xs text-slate-700'>
+                                comments
+                            </Text>
+                        </Flex>
+                    </Link>
                 </Flex>
             </Flex>
         </div>
