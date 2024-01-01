@@ -21,8 +21,8 @@ export default function Avatar({ name }: AvatarProps) {
             justify={'center'}
             align='center'
             className='rounded-full bg-gray-100'
-            width={'8'}
-            height={'8'}
+            width={'6'}
+            height={'6'}
         >
             <Text className='text-color' size='3'>
                 {PostAvatar[name]}
