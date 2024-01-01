@@ -24,20 +24,21 @@ export default function HackerNewsCategoryList({
     };
 
     return (
-        <Tabs.Root value={category}>
-            <Tabs.List>
-                {CATEGORY_LIST.map((category, index) => {
-                    return (
-                        <Tabs.Trigger
-                            value={category?.id}
-                            key={category?.id ?? index}
-                            onClick={() => handleNavigate(category.id)}
-                        >
-                            <HackerNewsCategory category={category} />
-                        </Tabs.Trigger>
-                    );
-                })}
-            </Tabs.List>
-        </Tabs.Root>
+        <Flex style={{ background: '#ff6600' }}></Flex>
+        // <Tabs.Root value={category} style={{ background: '#ff6600' }}>
+        //     <Tabs.List>
+        //         {CATEGORY_LIST.map((category, index) => {
+        //             return (
+        //                 <Tabs.Trigger
+        //                     value={category?.id}
+        //                     key={category?.id ?? index}
+        //                     onClick={() => handleNavigate(category.id)}
+        //                 >
+        //                     <HackerNewsCategory category={category} />
+        //                 </Tabs.Trigger>
+        //             );
+        //         })}
+        //     </Tabs.List>
+        // </Tabs.Root>
     );
 }

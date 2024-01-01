@@ -17,50 +17,60 @@ export default function HackerNewsPost({ post }: HackerNewsPostProps) {
     return (
         <div data-id={post.id}>
             <Flex
-                py={'4'}
+                py='1'
                 px='3'
                 className='hover:bg-gray-50 relative'
                 data-post-type={post.type}
                 justify={'between'}
             >
                 <Flex align={'center'} className='flex-1' pr='2'>
-                    <Avatar name={post.type} />
-                    <Box ml='3' className='flex-1'>
-                        <Link href={post.url ?? '#'} target='_blank'>
-                            <Text weight={'bold'} size='2'>
-                                {post?.title}
-                            </Text>
-                        </Link>
-                        <Flex>
-                            <Link
-                                href={
-                                    `https://news.ycombinator.com/user?id=` +
-                                    post.by
-                                }
-                            >
-                                <Text size='1' className='text-slate-700'>
-                                    By #{post.by}
-                                </Text>
-                            </Link>
-                            <Link
-                                href={`https://news.ycombinator.com/item?id=${post.id}`}
-                            >
-                                <Text
-                                    ml='2'
-                                    size='1'
-                                    className='text-slate-700'
+                    <Box className='flex-1'>
+                        <Flex align='start'>
+                            <Box>
+                                <Avatar name={post.type} />
+                            </Box>
+                            <Box ml='2' className='flex-1'>
+                                <Link href={post.url ?? '#'} target='_blank'>
+                                    <Text weight={'medium'} size='2'>
+                                        {post?.title}
+                                    </Text>
+                                </Link>
+
+                                <Flex>
+                                    <Link
+                                        href={
+                                            `https://news.ycombinator.com/user?id=` +
+                                            post.by
+                                        }
+                                    >
+                                        <Text
+                                            size='1'
+                                            className='text-slate-700'
+                                        >
+                                            By {post.by}
+                                        </Text>
+                                    </Link>
+                                    <Link
+                                        href={`https://news.ycombinator.com/item?id=${post.id}`}
+                                    >
+                                        <Text
+                                            ml='2'
+                                            size='1'
+                                            className='text-slate-700'
+                                        >
+                                            {post.descendants} comments
+                                        </Text>
+                                    </Link>
+                                </Flex>
+                                <Link
+                                    href={`https://news.ycombinator.com/item?id=${post.id}`}
                                 >
-                                    {post.descendants} comments
-                                </Text>
-                            </Link>
+                                    <Text size='1' className='text-slate-700'>
+                                        {date}
+                                    </Text>
+                                </Link>
+                            </Box>
                         </Flex>
-                        <Link
-                            href={`https://news.ycombinator.com/item?id=${post.id}`}
-                        >
-                            <Text size='1' className='text-slate-700'>
-                                {date}
-                            </Text>
-                        </Link>
                     </Box>
                 </Flex>
                 <Flex

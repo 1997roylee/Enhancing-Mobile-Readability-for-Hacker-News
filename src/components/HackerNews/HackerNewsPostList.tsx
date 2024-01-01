@@ -67,8 +67,8 @@ export default function HackerNewsPostList({
                 return (
                     <div key={date}>
                         <Box className='sticky top-0 z-10'>
-                            <Box className='bg-white py-4 border-b mx-3'>
-                                <Text size={'6'} weight='medium'>
+                            <Box className='bg-white py-2 border-b mx-3'>
+                                <Text size={'5'}>
                                     {date === now ? title + ' Today' : date}
                                 </Text>
                             </Box>
