@@ -4,16 +4,18 @@ import dayjs from 'dayjs';
 import Link from 'next/link';
 import Avatar from '../Avatar';
 import { RiArrowUpSFill } from 'react-icons/ri';
+import { formatRelative } from '@/utils/date';
 
 export interface HackerNewsPostProps {
-    post: THackerNewsPost | null;
+    post: THackerNewsPost;
 }
 
 export default function HackerNewsPost({ post }: HackerNewsPostProps) {
-    const date = dayjs.unix(post?.time ?? 0).format('YYYY-MM-DD HH:mm:ss');
+    const date = formatRelative(dayjs.unix(post.time));
 
     if (!post) return null;
 
+    const domain = (post.url ?? '').replace('https://', '').split('/')[0];
     return (
         <div data-id={post.id}>
             <Flex
@@ -28,15 +30,50 @@ export default function HackerNewsPost({ post }: HackerNewsPostProps) {
                         <Flex align='start'>
                             <Box>
                                 <Avatar name={post.type} />
+                                <Flex direction={'column'} justify={'center'}>
+                                    <Flex
+                                        align={'center'}
+                                        justify={'center'}
+                                        direction={'column'}
+                                    >
+                                        <RiArrowUpSFill
+                                            size='24px'
+                                            className='text-gray-600'
+                                        />
+                                        <Text
+                                            align='center'
+                                            size='1'
+                                            className='text-gray-600'
+                                        >
+                                            {post.score}
+                                        </Text>
+                                    </Flex>
+                                </Flex>
                             </Box>
                             <Box ml='2' className='flex-1'>
                                 <Link href={post.url ?? '#'}>
                                     <Text weight={'medium'} size='2'>
                                         {post?.title}
                                     </Text>
+                                    <div className='text-gray-500 text-2xs'>
+                                        {domain}
+                                    </div>
                                 </Link>
 
                                 <Flex>
+                                    <Link
+                                        href={`https://news.ycombinator.com/item?id=${post.id}`}
+                                    >
+                                        <Text
+                                            size='1'
+                                            className='text-slate-700'
+                                        >
+                                            <Text className='text-black'>
+                                                Posted
+                                            </Text>{' '}
+                                            {date}
+                                        </Text>
+                                    </Link>
                                     <Link
                                         href={
                                             `https://news.ycombinator.com/user?id=` +
@@ -45,20 +82,13 @@ export default function HackerNewsPost({ post }: HackerNewsPostProps) {
                                     >
                                         <Text
                                             size='1'
+                                            ml='1'
                                             className='text-slate-700'
                                         >
-                                            By {post.by}
-                                        </Text>
-                                    </Link>
-                                    <Link
-                                        href={`https://news.ycombinator.com/item?id=${post.id}`}
-                                    >
-                                        <Text
-                                            ml='2'
-                                            size='1'
-                                            className='text-slate-700'
-                                        >
-                                            {post.descendants} comments
+                                            <Text className='text-black'>
+                                                By
+                                            </Text>{' '}
+                                            {post.by}
                                         </Text>
                                     </Link>
                                 </Flex>
@@ -66,14 +96,14 @@ export default function HackerNewsPost({ post }: HackerNewsPostProps) {
                                     href={`https://news.ycombinator.com/item?id=${post.id}`}
                                 >
                                     <Text size='1' className='text-slate-700'>
-                                        {date}
+                                        {post.descendants} comments
                                     </Text>
                                 </Link>
                             </Box>
                         </Flex>
                     </Box>
                 </Flex>
-                <Flex
+                {/* <Flex
                     width='8'
                     className='border-l'
                     direction={'column'}
@@ -90,7 +120,7 @@ export default function HackerNewsPost({ post }: HackerNewsPostProps) {
                             {post.score}
                         </Text>
                     </Flex>
-                </Flex>
+                </Flex> */}
             </Flex>
         </div>
     );
