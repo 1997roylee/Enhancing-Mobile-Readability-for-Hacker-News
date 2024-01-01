@@ -56,11 +56,11 @@ API: https://github.com/HackerNews/API
 -   [ ] Enhance SEO
 -   [ ] Enhance Accessibility
 -   [ ] Enhance Performance
--   [ ] Support Infinite Scrolling
+-   [x] Support Infinite Scrolling
 -   [ ] Support Search
 -   [ ] Support Comments
 -   [ ] Support User Profile
 -   [ ] Support User Settings
 -   [ ] Support Font Size Customization
--   [ ] Reduce Spacing
+-   [x] Reduce Spacing
 -   [ ] Dump Radix UI
