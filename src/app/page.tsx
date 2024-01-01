@@ -23,7 +23,6 @@ export default async function Page({
     // searchParams: { p: number; category: string };
     params: { category: string };
 }) {
-    console.log(params);
     const page = 1;
     const category = params.category ?? 'top';
     const posts = await fetchNews(category, page);
