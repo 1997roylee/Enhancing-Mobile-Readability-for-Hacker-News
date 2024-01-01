@@ -11,15 +11,15 @@ export default function Header() {
                 align={'center'}
                 justify={'between'}
             >
-                <Box>
+                <Link href='https://news.ycombinator.com/' target='_blank'>
                     <Image
                         src='https://news.ycombinator.com/y18.svg'
-                        width={48}
-                        height={48}
+                        width={36}
+                        height={36}
                         alt='Y18'
                         className='rounded-full'
                     />
-                </Box>
+                </Link>
                 <Box>
                     <Link
                         href={
@@ -27,7 +27,9 @@ export default function Header() {
                         }
                         target='_blank'
                     >
-                        <Button color='orange'>Star Github</Button>
+                        <Button color='orange' variant='outline'>
+                            Github
+                        </Button>
                     </Link>
                 </Box>
             </Flex>
