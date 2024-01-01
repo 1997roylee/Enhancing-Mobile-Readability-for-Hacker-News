@@ -96,6 +96,7 @@ export default function HackerNewsPostList({
 
             <HackerNewsLoadMoreButton
                 category={category}
+                enabled={posts.length > 0}
                 onLoadMore={handleLoadMore}
             />
         </Flex>
