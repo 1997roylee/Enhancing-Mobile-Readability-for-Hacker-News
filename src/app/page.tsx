@@ -3,26 +3,20 @@ import { REVALIDATE_TIME } from '@/lib/y18';
 import { Suspense } from 'react';
 import Loading from './loading';
 import HackerNewsCategoryList from '@/components/HackerNews/HackerNewsCategoryList';
-// import { getNews, getNewsItems } from '@/lib/y18/server';
-// import { notFound } from 'next/navigation';
 import { fetchNews } from './actions';
 
-export const metadata = {
-    description: 'Modern design for Hacker News',
-    openGraph: {
-        type: 'website',
-    },
-};
+// export const metadata = {
+//     title: 'Hacker News | Hacker News For Mobile',
+//     description:
+//         'Enhance Readability and User Experience of Hacker News on Mobile Devices. Powered By Hacker News API.',
+//     openGraph: {
+//         type: 'website',
+//     },
+// };
 
 export const revalidate = REVALIDATE_TIME;
 
-export default async function Page({
-    // searchParams,
-    params,
-}: {
-    // searchParams: { p: number; category: string };
-    params: { category: string };
-}) {
+export default async function Page({ params }: { params: { category: string } }) {
     const page = 1;
     const category = params.category ?? 'top';
     const posts = await fetchNews(category, page);
