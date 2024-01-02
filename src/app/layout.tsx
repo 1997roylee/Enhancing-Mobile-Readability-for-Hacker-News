@@ -11,6 +11,9 @@ export const metadata = {
     title: 'Hacker News | Hacker News For Mobile',
     description:
         'Enhance Readability and User Experience of Hacker News on Mobile Devices. Powered By Hacker News API.',
+    icons: {
+        icon: '/y18.svg',
+    },
     openGraph: {
         title: 'Hacker News | Hacker News For Mobile',
         type: 'website',
@@ -25,6 +28,9 @@ export const metadata = {
 export default function RootLayout({ children }: PropsWithChildren) {
     return (
         <html lang='en'>
+            <head>
+                <meta name='theme-color' content='#FF6600' />
+            </head>
             <body>
                 <Providers>
                     <Header />

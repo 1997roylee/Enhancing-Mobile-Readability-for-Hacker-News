@@ -8,7 +8,7 @@ export default function Header() {
             <Flex className='border-b bg-slate-50' p='3' align={'center'} justify={'between'}>
                 <Link href='https://news.ycombinator.com/' target='_blank'>
                     <Image
-                        src='https://news.ycombinator.com/y18.svg'
+                        src='/y18.svg'
                         width={30}
                         height={30}
                         alt='Y18'
