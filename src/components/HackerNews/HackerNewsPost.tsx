@@ -31,10 +31,7 @@ export default function HackerNewsPost({ post }: HackerNewsPostProps) {
                             <Box>
                                 <Link href='https://news.ycombinator.com/vote?id=38830194&how=up&goto=news'>
                                     {/* <Avatar name={post.type} /> */}
-                                    <Flex
-                                        direction={'column'}
-                                        justify={'center'}
-                                    >
+                                    <Flex direction={'column'} justify={'center'}>
                                         <Flex
                                             align={'center'}
                                             justify={'center'}
@@ -60,40 +57,22 @@ export default function HackerNewsPost({ post }: HackerNewsPostProps) {
                                     <Text weight={'medium'} size='2'>
                                         {post?.title}
                                     </Text>
-                                    <div className='text-gray-500 text-2xs'>
-                                        {domain}
-                                    </div>
+                                    <div className='text-gray-500 text-2xs'>{domain}</div>
                                 </Link>
 
                                 <Flex>
-                                    <Link
-                                        href={`https://news.ycombinator.com/item?id=${post.id}`}
-                                    >
-                                        <Text
-                                            size='1'
-                                            className='text-slate-700 hover:underline'
-                                        >
-                                            <Text className='text-black'>
-                                                Posted
-                                            </Text>{' '}
-                                            {date}
+                                    <Link href={`https://news.ycombinator.com/item?id=${post.id}`}>
+                                        <Text size='1' className='text-slate-700 hover:underline'>
+                                            <Text className='text-black'>Posted</Text> {date}
                                         </Text>
                                     </Link>
-                                    <Link
-                                        href={
-                                            `https://news.ycombinator.com/user?id=` +
-                                            post.by
-                                        }
-                                    >
+                                    <Link href={`https://news.ycombinator.com/user?id=` + post.by}>
                                         <Text
                                             size='1'
                                             ml='1'
                                             className='text-slate-700 hover:underline'
                                         >
-                                            <Text className='text-black'>
-                                                By
-                                            </Text>{' '}
-                                            {post.by}
+                                            <Text className='text-black'>By</Text> {post.by}
                                         </Text>
                                     </Link>
                                 </Flex>
@@ -102,9 +81,7 @@ export default function HackerNewsPost({ post }: HackerNewsPostProps) {
                     </Box>
                 </Flex>
                 <Flex direction={'column'} justify={'center'}>
-                    <Link
-                        href={`https://news.ycombinator.com/item?id=${post.id}`}
-                    >
+                    <Link href={`https://news.ycombinator.com/item?id=${post.id}`}>
                         <Flex
                             className='flex-1 hover:underline cursor-pointer'
                             align={'center'}
@@ -112,16 +89,10 @@ export default function HackerNewsPost({ post }: HackerNewsPostProps) {
                             direction={'column'}
                         >
                             {/* <RiArrowUpSFill size='32px' className='text-gray-600' /> */}
-                            <Text
-                                align='center'
-                                size='2'
-                                className='text-slate-700'
-                            >
+                            <Text align='center' size='2' className='text-slate-700'>
                                 {post.descendants}
                             </Text>
-                            <Text className='text-2xs text-slate-700'>
-                                comments
-                            </Text>
+                            <Text className='text-2xs text-slate-700'>comments</Text>
                         </Flex>
                     </Link>
                 </Flex>

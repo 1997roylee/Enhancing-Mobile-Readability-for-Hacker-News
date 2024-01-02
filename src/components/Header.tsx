@@ -5,12 +5,7 @@ import Link from 'next/link';
 export default function Header() {
     return (
         <>
-            <Flex
-                className='border-b bg-slate-50'
-                p='3'
-                align={'center'}
-                justify={'between'}
-            >
+            <Flex className='border-b bg-slate-50' p='3' align={'center'} justify={'between'}>
                 <Link href='https://news.ycombinator.com/' target='_blank'>
                     <Image
                         src='https://news.ycombinator.com/y18.svg'
@@ -21,12 +16,7 @@ export default function Header() {
                     />
                 </Link>
                 <Box>
-                    <Link
-                        href={
-                            'https://github.com/1997roylee/modern-hacker-news'
-                        }
-                        target='_blank'
-                    >
+                    <Link href={'https://github.com/1997roylee/modern-hacker-news'} target='_blank'>
                         <Button color='orange' variant='outline' size='1'>
                             Github
                         </Button>

@@ -1,9 +1,4 @@
-export type HackerNewsPostType =
-    | 'job'
-    | 'story'
-    | 'comment'
-    | 'poll'
-    | 'pollopt';
+export type HackerNewsPostType = 'job' | 'story' | 'comment' | 'poll' | 'pollopt';
 
 export type HackerNewsPost = {
     by: string;

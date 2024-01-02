@@ -64,12 +64,7 @@ export default function HackerNewsPostList({
         <Flex direction={'column'} className='mt-1'>
             {posts.length === 0 && <HackerNewsLoadingList />}
             {posts.map((post) => {
-                return (
-                    <HackerNewsPost
-                        key={`${category}/${post.id}`}
-                        post={post}
-                    />
-                );
+                return <HackerNewsPost key={`${category}/${post.id}`} post={post} />;
             })}
             {/* {Object.entries(postsByDate).map(([date, posts]) => {
                 return (

@@ -4,9 +4,7 @@ export type HackerNewsPostLoadingProps = {
     backgroundColor: string;
 };
 
-export function HackerNewsPostLoading({
-    backgroundColor,
-}: HackerNewsPostLoadingProps) {
+export function HackerNewsPostLoading({ backgroundColor }: HackerNewsPostLoadingProps) {
     return (
         <Flex className='animate-pulse' align={'center'} mb='8'>
             <Box
@@ -32,15 +30,7 @@ export function HackerNewsPostLoading({
     );
 }
 
-const Colors = [
-    '#FEE2D6',
-    '#FDF4D6',
-    '#EDF8D6',
-    '#E3F5E3',
-    '#D8ECFF',
-    '#E6E0FF',
-    '#FBDCF2',
-];
+const Colors = ['#FEE2D6', '#FDF4D6', '#EDF8D6', '#E3F5E3', '#D8ECFF', '#E6E0FF', '#FBDCF2'];
 
 export default function HackerNewsLoadingList() {
     return (
