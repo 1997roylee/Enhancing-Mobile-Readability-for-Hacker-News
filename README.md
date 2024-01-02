@@ -63,4 +63,4 @@ API: https://github.com/HackerNews/API
 -   [ ] Support User Settings
 -   [ ] Support Font Size Customization
 -   [x] Reduce Spacing
--   [ ] Dump Radix UI
+-   [x] Dump Radix UI
