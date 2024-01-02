@@ -1,8 +1,9 @@
 'use client';
 
 import { CATEGORY_LIST, Category } from '@/utils/category';
-import { Flex, Text } from '@radix-ui/themes';
 import { useRouter } from 'next/navigation';
+import Flex from '../ui/Flex';
+import Text from '../ui/Text';
 
 export const HackerNewsCategory = ({
     category,
@@ -21,7 +22,7 @@ export const HackerNewsCategory = ({
                 (isActive && ' bg-gray-100')
             }
         >
-            <Text size='2'>{category.label}</Text>
+            <Text className='text-sm font-light text-slate-700'>{category.label}</Text>
         </Flex>
     );
 };

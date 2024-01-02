@@ -1,11 +1,9 @@
 import './globals.css';
-import Providers from '@/components/Providers';
-import Header from '@/components/Header';
-import { Container } from '@radix-ui/themes';
-import '@radix-ui/themes/styles.css';
-import { PropsWithChildren } from 'react';
 import 'intersection-observer';
+import Header from '@/components/Header';
+import { PropsWithChildren } from 'react';
 import { Analytics } from '@vercel/analytics/react';
+import Container from '@/components/ui/Container';
 
 export const metadata = {
     title: 'Hacker News | Hacker News For Mobile',
@@ -32,10 +30,9 @@ export default function RootLayout({ children }: PropsWithChildren) {
                 <meta name='theme-color' content='#FF6600' />
             </head>
             <body>
-                <Providers>
-                    <Header />
-                    <Container>{children}</Container>
-                </Providers>
+                <Header />
+                <Container>{children}</Container>
+
                 <Analytics />
             </body>
         </html>

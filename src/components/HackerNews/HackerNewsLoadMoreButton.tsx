@@ -1,11 +1,11 @@
 'use client';
 
-import { Flex, Text } from '@radix-ui/themes';
 import { useCallback, useEffect, useState } from 'react';
 import HackerNewsLoadingList from './HackerNewsLoadingList';
 import { fetchNews } from '@/app/actions';
 import { HackerNewsPost } from '@/lib/y18/types';
 import { useInView } from 'react-intersection-observer';
+import Text from '../ui/Text';
 
 export type HackerNewsLoadMoreButtonProps = {
     category?: string;
@@ -46,11 +46,10 @@ export default function HackerNewsLoadMoreButton({
     return (
         <>
             {isLoading && <HackerNewsLoadingList />}
-
             {enabled && (
-                <Flex justify={'center'} width='100%' mb={'6'} ref={ref}>
-                    <Text>Loading more...</Text>
-                </Flex>
+                <div className='flex justify-center w-full mb-6' ref={ref}>
+                    <Text className='text-center text-sm'>Loading more...</Text>
+                </div>
             )}
         </>
     );

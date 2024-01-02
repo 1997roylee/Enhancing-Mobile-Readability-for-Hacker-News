@@ -1,11 +1,11 @@
 'use client';
 
 import { type HackerNewsPost as THackerNewsPost } from '@/lib/y18/types';
-import { Flex } from '@radix-ui/themes';
 import HackerNewsPost from './HackerNewsPost';
 import HackerNewsLoadMoreButton from './HackerNewsLoadMoreButton';
 import { useEffect, useState } from 'react';
 import HackerNewsLoadingList from './HackerNewsLoadingList';
+import Flex from '../ui/Flex';
 
 export interface HackerNewsPostListProps {
     initialPosts: (THackerNewsPost | null)[];
@@ -27,7 +27,7 @@ export default function HackerNewsPostList({
     };
 
     return (
-        <Flex direction={'column'} className='mt-1'>
+        <Flex className='flex-col mt-1'>
             {posts.length === 0 && <HackerNewsLoadingList />}
             {posts.map((post) => {
                 return <HackerNewsPost key={`${category}/${post.id}`} post={post} />;

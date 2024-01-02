@@ -1,5 +1,6 @@
 import { HackerNewsPostType } from '@/lib/y18/types';
-import { Flex, Text } from '@radix-ui/themes';
+import Flex from './ui/Flex';
+import Text from './ui/Text';
 
 export type AvatarProps = {
     name: HackerNewsPostType;
@@ -24,10 +25,7 @@ export default function Avatar({ name }: AvatarProps) {
             width={'6'}
             height={'6'}
         >
-            <Text className='text-color' size='3'>
-                {PostAvatar[name]}
-                {/* {`${name[0]}${name?.[1]}`.toUpperCase()} */}
-            </Text>
+            <Text className='text-color text-md'>{PostAvatar[name]}</Text>
         </Flex>
     );
 }
