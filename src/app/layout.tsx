@@ -6,6 +6,7 @@ import { Container } from '@radix-ui/themes';
 import '@radix-ui/themes/styles.css';
 import { PropsWithChildren } from 'react';
 import 'intersection-observer';
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
     title: 'Hacker News',
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
                     <Header />
                     <Container>{children}</Container>
                 </Providers>
+                <Analytics />
             </body>
         </html>
     );
