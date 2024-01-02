@@ -1,7 +1,7 @@
 import { HackerNewsPost as THackerNewsPost } from '@/lib/y18/types';
 import dayjs from 'dayjs';
 import Link from 'next/link';
-import { RiArrowUpSFill } from 'react-icons/ri';
+import { RiArrowUpSFill, RiTimer2Line } from 'react-icons/ri';
 import { formatRelative } from '@/utils/date';
 import Flex from '../ui/Flex';
 import Text from '../ui/Text';
@@ -23,14 +23,14 @@ export default function HackerNewsPost({ post }: HackerNewsPostProps) {
                 data-post-type={post.type}
                 justify={'between'}
             >
-                <Flex className='flex-1 pr-1 align-center'>
+                <Flex className='flex-1 pr-1 items-center'>
                     <div className='flex-1'>
                         <Flex className='align-top'>
                             <div>
                                 <Link href='https://news.ycombinator.com/vote?id=38830194&how=up&goto=news'>
                                     {/* <Avatar name={post.type} /> */}
                                     <Flex className='justify-center flex-col'>
-                                        <Flex className='flex-col align-center justify-center'>
+                                        <Flex className='flex-col items-center justify-center'>
                                             <RiArrowUpSFill
                                                 size='24px'
                                                 className='text-slate-700'
@@ -48,11 +48,14 @@ export default function HackerNewsPost({ post }: HackerNewsPostProps) {
                                     <div className='text-gray-500 text-2xs'>{domain}</div>
                                 </Link>
 
-                                <Flex>
+                                <Flex className='items-center'>
                                     <Link href={`https://news.ycombinator.com/item?id=${post.id}`}>
-                                        <Text className='text-slate-600 hover:underline text-xs font-light'>
-                                            <Text className='text-black'>Posted</Text> {date}
-                                        </Text>
+                                        <Flex className='items-center'>
+                                            <RiTimer2Line className='text-slate-600' size='14px' />
+                                            <Text className='text-slate-600 hover:underline text-xs font-light ml-1'>
+                                                {date}
+                                            </Text>
+                                        </Flex>
                                     </Link>
                                     <Link href={`https://news.ycombinator.com/user?id=` + post.by}>
                                         <Text className='ml-1 text-slate-600 hover:underline text-xs font-light'>
@@ -66,7 +69,7 @@ export default function HackerNewsPost({ post }: HackerNewsPostProps) {
                 </Flex>
                 <Flex className='flex-col justify-center'>
                     <Link href={`https://news.ycombinator.com/item?id=${post.id}`}>
-                        <Flex className='flex-col align-center justify-center flex-1 hover:underline cursor-pointer'>
+                        <Flex className='flex-col items-center justify-center flex-1 hover:underline cursor-pointer'>
                             <Text className='text-slate-600 text-center text-sm font-light'>
                                 {post.descendants}
                             </Text>
