@@ -40,8 +40,7 @@ Please feel free to [file an issue](https://github.com/1997roylee/Enhancing-Mobi
 ## Tech Stack
 
 -   React 18
--   Next.js 14
--   Radix UI
+-   Next.js 14 - App Router
 -   Tailwind CSS
 
 ## References
